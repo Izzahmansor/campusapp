@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus App - UiTM Machang</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Container helper */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- HERO SECTION (IMPROVED LEGIBILITY) --- */
+.hero-section {
+    padding: 110px 0rem 50px 0rem;
+}
+
+.hero-banner {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    background: url('index.jpeg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #ffffff;
+}
+
+/* Glassmorphism content container for maximum readability */
+.hero-content {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 2rem;
+    max-width: 580px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #f1f5f9;
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .features-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .features-left h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a202c;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        .features-left p {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-icons a {
+            width: 38px;
+            height: 38px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #cbd5e1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .stat-item h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.2rem;
+        }
+
+        .features-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-card {
+            background-color: #ffffff;
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f1f5f9;
+        }
+
+        .feature-card i {
+            font-size: 1.5rem;
+            color: #40082c;
+            background-color: #eff6ff;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        .feature-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-card p {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* --- CAMPUS MAP SECTION --- */
+        .map-wrapper {
+            max-width: 1200px;
+            margin: 1rem auto 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .map-container {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            text-align: center;
+        }
+
+        .map-header {
+            margin-bottom: 2rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .map-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .map-header p {
+            color: #64748b;
+            font-size: 0.9rem;
+            max-width: 400px;
+            text-align: right;
+        }
+
+        .map-image-box {
+            position: relative;
+            width: 100%;
+            max-height: 700px;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .map-image-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .map-image-box img {
+            width: 100%;
+            height: auto;
+            max-height: 700px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .map-hint {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Lightbox Modal for Map Viewing */
+        .map-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .map-modal.active {
+            display: flex;
+        }
+
+        .map-modal img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #ef4444;
+        }
+
+        /* --- TOP DESTINATIONS / AUTO-SCROLL SECTION --- */
+        .destinations-wrapper {
+            max-width: 1200px;
+            margin: 2rem auto 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .destinations-container {
+            background-color: #ffffff;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .destinations-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        .destinations-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .destinations-header p {
+            color: #64748b;
+            font-size: 0.9rem;
+            max-width: 350px;
+            text-align: right;
+        }
+
+        /* Horizontal Carousel Wrapper */
+        .slider-wrapper {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            margin-bottom: 2rem;
+        }
+
+        .slider-wrapper::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+
+        /* Continuous Flex Track */
+        .cards-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+        }
+
+        .destination-card {
+            position: relative;
+            width: 260px;
+            height: 380px;
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.25rem;
+            color: #fff;
+            background: linear-gradient(180deg, rgba(200,200,200,0.2) 0%, rgba(30,30,30,0.9) 100%);
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(4px);
+            color: #0f172a;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .card-meta {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .destinations-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-dark {
+            background-color: #1e293b;
+            color: #fff;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn-dark:hover {
+            background-color: #0f172a;
+        }
+
+        .slider-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #cbd5e1;
+            background: transparent;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .slider-btn:hover {
+            background: #f1f5f9;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .features-section {
+                grid-template-columns: 1fr;
+            }
+            .map-header, .destinations-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .map-header p, .destinations-header p {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-banner"></div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="features-section">
+        <div class="features-left">
+            <h2>How can Campus App Help You at UiTM Machang?</h2>
+            <p>From academic timetables and dining spots to leisure areas and campus management, we make navigating UiTM Machang easier, faster, and seamlessly connected.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>8k+</h3>
+                    <p>Total Active Students</p>
+                </div>
+                <div class="stat-item">
+                    <h3>41yrs</h3>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Campus Locations Covered</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-right">
+            <div class="feature-card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div>
+                    <h4>Campus Navigation</h4>
+                    <p>Easily locate lecture halls, administrative offices, and facilities across the entire Machang campus.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-calendar-check"></i>
+                <div>
+                    <h4>All-in-One Services</h4>
+                    <p>Manage your academic schedules, check dining spots, and explore campus attractions in one place.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                    <h4>Student Support</h4>
+                    <p>Access management contacts and helpful real-time student assistance whenever you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAMPUS MAP SECTION (Campus Buddy) -->
+    <section class="map-wrapper" id="campus-map">
+        <div class="map-container">
+            <div class="map-header">
+                <h2>Campus Buddy Map Directory</h2>
+                <p>Interactive overview map of UiTM Cawangan Kelantan Kampus Machang with building legend index.</p>
+            </div>
+            
+            <div class="map-image-box" id="mapTrigger">
+                <img src="Campus Buddy (1).png" alt="UiTM Machang Campus Buddy Map">
+            </div>
+            <p class="map-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Click on the map to expand full-screen view</p>
+        </div>
+    </section>
+
+    <!-- MAP LIGHTBOX MODAL -->
+    <div class="map-modal" id="mapModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img src="Campus Buddy (1).png" alt="UiTM Machang Campus Buddy Map Full View">
+    </div>
+
+    <!-- TOP DESTINATIONS / CAMPUS HIGHLIGHTS AUTO-SCROLL SECTION -->
+    <div class="destinations-wrapper" id="main-attraction">
+        <div class="destinations-container">
+            <div class="destinations-header">
+                <h2>Campus Main Attractions</h2>
+                <p>Discover the key landmarks, academic hubs, and popular student spots around UiTM Machang.</p>
+            </div>
+
+            <!-- Auto-scroll viewport container -->
+            <div class="slider-wrapper" id="sliderWrapper">
+                <div class="cards-track" id="cardsTrack">
+
+                    <!-- Card 1 -->
+                    <div class="destination-card" style="background-image: url('admin.png');">
+                        <span class="card-badge">Landmark UiTMCK</span>
+                        <div class="card-content">
+                            <h3>Administrative Building</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> &bull; Management</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="destination-card" style="background-image: url('pta.png');">
+                        <span class="card-badge">Academic Hub</span>
+                        <div class="card-content">
+                            <h3>Perpustakaan Tengku Anis (PTA)</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> &bull; Quiet Study Zone</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="destination-card" style="background-image: url('block.png');">
+                        <span class="card-badge">Faculty Building</span>
+                        <div class="card-content">
+                            <h3>Block A, B and C</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Academic Zone &bull; Lecture Halls</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="destination-card" style="background-image: url('student_center.png');">
+                        <span class="card-badge">Student Centre</span>
+                        <div class="card-content">
+                            <h3>Student Centre</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Student Hub &bull; Activities Area</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="destination-card" style="background-image: url('sport.png');">
+                        <span class="card-badge">Sports & Leisure</span>
+                        <div class="card-content">
+                            <h3>Sport Complex</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Recreations &bull; Courts & Field</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="destination-card" style="background-image: url('nasken.png');">
+                        <span class="card-badge">Dining</span>
+                        <div class="card-content">
+                            <h3>Nasken Coffee</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Coffee and Chill &bull; Comfortable</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="destination-card" style="background-image: url('rumah_putih.png');">
+                        <span class="card-badge">Building</span>
+                        <div class="card-content">
+                            <h3>Rumah Putih</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Classic Architecture</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="destination-card" style="background-image: url('kem.png');">
+                        <span class="card-badge">Sports & Leisure</span>
+                        <div class="card-content">
+                            <h3>Kem Wawasan</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Adventure</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 -->
+                    <div class="destination-card" style="background-image: url('dewan.png');">
+                        <span class="card-badge">Building</span>
+                        <div class="card-content">
+                            <h3>Dewan Professional</h3>
+                            <p class="card-meta"><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Events & Conferences</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="destinations-footer">
+                <a href="#" class="btn-dark">View all locations</a>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="slider-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Load Navbar
+        fetch('navbar.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+                const scriptTags = document.getElementById('navbar-container').querySelectorAll('script');
+                scriptTags.forEach(script => {
+                    const newScript = document.createElement('script');
+                    newScript.text = script.innerHTML;
+                    document.body.appendChild(newScript);
+                });
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+
+        // Map Modal Viewing Logic
+        const mapTrigger = document.getElementById('mapTrigger');
+        const mapModal = document.getElementById('mapModal');
+        const closeModal = document.getElementById('closeModal');
+
+        mapTrigger.addEventListener('click', () => {
+            mapModal.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', () => {
+            mapModal.classList.remove('active');
+        });
+
+        mapModal.addEventListener('click', (e) => {
+            if (e.target === mapModal) {
+                mapModal.classList.remove('active');
+            }
+        });
+
+        // Auto-Scroll JavaScript Logic
+        const wrapper = document.getElementById('sliderWrapper');
+        const track = document.getElementById('cardsTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Clone cards to achieve seamless infinite loop
+        const originalCards = Array.from(track.children);
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            track.appendChild(clone);
+        });
+
+        let autoScrollSpeed = 1; 
+        let isHovered = false;
+
+        function autoScroll() {
+            if (!isHovered) {
+                wrapper.scrollLeft += autoScrollSpeed;
+                if (wrapper.scrollLeft >= track.scrollWidth / 2) {
+                    wrapper.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(autoScroll);
+        }
+
+        // Pause scrolling on mouse hover
+        wrapper.addEventListener('mouseenter', () => isHovered = true);
+        wrapper.addEventListener('mouseleave', () => isHovered = false);
+
+        // Manual controls
+        nextBtn.addEventListener('click', () => {
+            wrapper.scrollBy({ left: 280, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            wrapper.scrollBy({ left: -280, behavior: 'smooth' });
+        });
+
+        // Start infinite scroll
+        requestAnimationFrame(autoScroll);
+    </script>
+</body>
+
+<!-- Dynamic Footer Container -->
+<div id="footer-container"></div>
+
+<script>
+    fetch('footer.php')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
+</script>
+
+
+</html>
